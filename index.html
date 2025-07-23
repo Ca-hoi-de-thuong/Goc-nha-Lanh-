@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Góc nhà Lanh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: #fff0f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      text-align: center;
+      background: linear-gradient(to right, #ffd6e8, #c3f0f4);
+      padding: 40px 20px;
+    }
+    header img {
+      width: 200px;
+      border-radius: 16px;
+    }
+    header h1 {
+      font-size: 2em;
+      color: #d14c8b;
+      margin: 20px 0 0;
+    }
+    main {
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .section-title {
+      color: #1c8d87;
+      font-size: 1.5em;
+      margin-bottom: 15px;
+    }
+    .upload-form, .contact-form {
+      background: #e1f5fe;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 40px;
+    }
+    .upload-form label, .upload-form input, .upload-form select,
+    .contact-form label, .contact-form input, .contact-form textarea {
+      display: block;
+      margin-bottom: 10px;
+      width: 100%;
+      font-size: 1em;
+    }
+    .upload-form input[type="submit"], .contact-form input[type="submit"] {
+      background-color: #4fc3f7;
+      border: none;
+      padding: 10px;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .file-list {
+      margin-top: 30px;
+    }
+    .file-item {
+      background: #f0f4c3;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .file-item a {
+      margin-right: 10px;
+      color: #388e3c;
+      text-decoration: none;
+    }
+    footer {
+      background: #fce4ec;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.95em;
+      color: #555;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo Góc nhà Lanh">
+    <h1>Góc Chia Sẻ Tài Liệu của cô Lanh</h1>
+  </header>
+  <main>
+    <section>
+      <p>Chào mừng bạn đến với Góc nhà Lanh! Đây là nơi mình chia sẻ các tài liệu học tập mình đã làm dành cho giáo viên tiểu học – bao gồm bài giảng PowerPoint, đề cương PDF và nội dung công tác chủ nhiệm.</p>
+    </section>
+
+    <section id="upload-section" class="hidden">
+      <h2 class="section-title">Tải tài liệu lên (chỉ dành cho chủ sở hữu)</h2>
+      <form name="upload" class="upload-form" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="upload">
+        <label for="title">Tên tài liệu:</label>
+        <input type="text" name="title" id="title" required>
+
+        <label for="category">Danh mục:</label>
+        <select name="category" id="category" required>
+          <option value="PowerPoint">PowerPoint – Bài giảng</option>
+          <option value="PDF">Tài liệu dạy học</option>
+          <option value="ChuNhiem">Công tác chủ nhiệm</option>
+        </select>
+
+        <label for="link">Liên kết tải tài liệu (Google Drive / Firebase):</label>
+        <input type="url" name="link" id="link" required>
+
+        <input type="submit" value="Gửi tài liệu">
+      </form>
+    </section>
+
+    <section>
+      <h2 class="section-title">Danh mục tài liệu</h2>
+      <ul>
+        <li><a href="powerpoint.html">PowerPoint – Bài giảng</a></li>
+        <li><a href="pdf.html">Tài liệu dạy học</a></li>
+        <li><a href="chunhiem.html">Công tác chủ nhiệm lớp</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="section-title">Soạn theo yêu cầu</h2>
+      <form name="contact" class="contact-form" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact">
+        <label for="name">Họ và tên:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email liên hệ:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Nội dung yêu cầu:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <input type="submit" value="Gửi yêu cầu">
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>Website chia sẻ tài liệu học tập gồm PowerPoint, PDF và hình ảnh miễn phí về công tác chủ nhiệm và các tài liệu cho giáo viên tiểu học mà mình đã làm.</p>
+    <p>Liên hệ: 0886077032 | <a href="https://www.facebook.com/suzu.hiroko.3" target="_blank">Facebook</a></p>
+  </footer>
+  <script>
+    if (window.location.hash === "#admin") {
+      document.getElementById("upload-section").classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
